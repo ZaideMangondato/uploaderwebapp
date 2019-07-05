@@ -358,7 +358,7 @@
                 <td><?php echo $entry; ?></td>
                 <td><a target="_blank" href="http://127.0.0.1/uploader/dir/<?php echo strtolower($_SESSION["txtusername"]); ?>/<?php echo $entry; ?>"><i class="fa fa-cloud-download"></i> Download</a></td>
                 <td>
-                  <button type="button"  name="deleteFile" class="btn btn-sm btn-danger" onclick="deleteFunction('<?php echo $fileDir; ?>')"><i class="fa fa-trash"></i> Delete</button>
+                  <button type="button"  name="deleteFile" class="btn btn-sm btn-danger" onclick="deleteFunction('<?php echo $fileDir; ?>', '<?php echo $entry; ?>')"><i class="fa fa-trash"></i> Delete</button>
                 </td>
               </tr>
             <?php
@@ -405,12 +405,10 @@
   
 
 
-  function deleteFunction(deleteFile){
+  function deleteFunction(deleteFile, filename){
 
-  
-//       alert(deleteFile);
     Swal.fire({
-        title: 'Are you sure you want to Delete '+deleteFile+'?',
+        title: 'Are you sure you want to Delete '+filename+'?',
         text: "You won't be able to revert this!",
         type: 'warning',
         showCancelButton: true,
